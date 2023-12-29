@@ -3,11 +3,6 @@ import json
 from datetime import datetime, timedelta
 import threading
 import time 
-from tkinter import *
-import tkinter as tk
-from tkinter import Entry
-from tkinter import ttk
-import os
 
 try:
   with open('proxy.json', 'r') as f:
