@@ -4,10 +4,10 @@ import time
 # Gönderilecek JSON verisi
 data = {
     "eventId": "5904321",
-    "otpId": "iFrpsrOLRO4qtXkug1YT4GWqeJ71P+mImafdGZ4J8AXqkcWQNx2EnWrpNo+j/JCJE29uWZG/Lja912PSW8yQ1azvbEHW6AaCrKmGKgDHVQEfxk51L2DeNKIVeOLlJKbM",
-    "sessionId": "e9ed7a2a-7e21-4a77-9d81-60f91e4ae530",
-    "refreshtoken": "04523c86-2e5f-492d-a4b4-48cfcca7d2bf",
-    "deviceId": "cd8df8dbb2dbee97"
+    "otpId": "+sa4SIHM57lF6Td5Sv3nT5Yecffi+ixejW6uDrG5enRnkU1yrQ7k/f0UeQ4EhmZ6dT1V8IJrsS76kyqUIVK08wxHDywheKNfx5HHv+orDWnKB425zY4rD6ZZuJBZB/yK",
+    "sessionId": "8d079c94-5ff9-4b5e-87fe-67e4d509a241",
+    "refreshtoken": "328d53b2-f8cb-46c6-a044-8df1d8501fb5",
+    "deviceId": "fca199647967b92c"
 }
 
 url_start = "http://104.247.166.78:5000/start_try"
@@ -23,7 +23,7 @@ guid = response_start.json().get('message').split("GUID: ")[1].replace(")", "")
 
 print(f"Başlatılan işlem GUID: {guid}")
 
-time.sleep(5)
+time.sleep(2)
 # Stop endpoint'i için bir istek gönder ve GUID ile hangi işlemi durduracağını belirt
 
 response_stop = requests.post(url_stop, headers=headers, json={"guid": guid})

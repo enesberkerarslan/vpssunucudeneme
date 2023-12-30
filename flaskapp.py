@@ -84,10 +84,10 @@ def get_categories():
 @app.route('/start_try', methods=['POST'])
 def start_try():
     data = request.get_json()  # Gelen veriyi alın
-
+    
     
     guid = str(uuid.uuid4())
-
+    return jsonify({'status': 'success', 'message': f'try_ticket başlatıldı (GUID: {guid})'})
     is_active[guid] = True
     # Her bir GUID için ayrı bir thread oluştur
     t = threading.Thread(target=ticket_try, args=(guid, data))

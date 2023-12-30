@@ -125,7 +125,7 @@ class MobileBot:
           ],
           "EventId": self.eventId
         }
-      basketResponse = requests.post(url=url,json=sepeteAtBody, headers=headers,proxies=proxies)
+      basketResponse = requests.post(url=url,json=sepeteAtBody, headers=headers)
       basketResponse = json.loads(basketResponse.text)
       print(basketResponse)
 
