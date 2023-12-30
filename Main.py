@@ -1,11 +1,10 @@
 import requests
 import json
 from datetime import datetime, timedelta
-import threading
 import time 
 
 try:
-  with open('proxy.json', 'r') as f:
+  with open('vpssunucudeneme/proxy.json', 'r') as f:
     data = json.load(f)
     proxy = data['proxies'][0]
     link = data['link']
@@ -40,7 +39,7 @@ class MobileBot:
       self.biletLimiti = False
       self.mail = ""
 
-      self.ticketLimit = False
+      self.ticketLimit = True
       self.categories = {}
       self.category_variant_mapping = {}
       self.bot_token = "6166443323:AAGvbrCPmFPhhPrYKtoS42vUHU4_IiNEnVU"
@@ -137,7 +136,7 @@ class MobileBot:
         }
         requests.post(self.api_url, data=data)  
       elif(basketResponse["message"] == "Bu etkinlik için etkinlik limiti aşılmıştır."):
-        self.ticketLimit = True
+        self.ticketLimit = False
         
     
     def bloklarıTara(self):
@@ -186,7 +185,7 @@ class MobileBot:
       else :
         sorted_value_list = sorted(getTicketInfo['valueList'], key=lambda x: x['categoriesCount'], reverse=True)
         for item in sorted_value_list:
-          self.blockId = item['id'] # En çok olanı bulmak için sıralama bu şekilde yapıldı
+          self.blockId = item['id'] 
           self.sepeteAt()
 
     def biletAl(self):
@@ -229,7 +228,7 @@ class MobileBot:
         "x-session-id": self.sessionId
       }
       try:
-        getAvailableCategory = requests.post(url=url,json=body, headers=headers,timeout=10,proxies=proxies)
+        getAvailableCategory = requests.post(url=url,json=body, headers=headers,proxies=proxies,timeout=15)
         getAvailableCategory.raise_for_status()
       except requests.exceptions.HTTPError as http_err:
             if http_err.response.status_code == 401:               
@@ -269,7 +268,6 @@ class MobileBot:
       response = requests.post(url=url,json=body, headers=headers,proxies=proxies)
       response = json.loads(response.text)
       print(response)
-      current_time = datetime.now().strftime("%H:%M:%S")
 
     def sepetiGetir(self):
       url = "http://ticketingmobile.passo.com.tr/api/passomobile/getuserbasketbooking"

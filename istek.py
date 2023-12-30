@@ -10,7 +10,7 @@ data = {
     "deviceId": "fca199647967b92c"
 }
 
-url_start = "http://104.247.166.78:5000/start_try"
+url_start = "http://127.0.0.1:5000/start_try"
 url_stop = "http://104.247.166.78:5000/stop_try"
 
 headers = {"Content-Type": "application/json"}
@@ -27,7 +27,7 @@ print(response_start.text)
 time.sleep(55)
 # Stop endpoint'i için bir istek gönder ve GUID ile hangi işlemi durduracağını belirt
 
-response_stop = requests.post(url_stop, headers=headers, json={"guid": guid})
+#response_stop = requests.post(url_stop, headers=headers, json={"guid": guid})
 #
 ## Yanıtı ekrana yazdır
-print(response_stop.json())
+#print(response_stop.json())

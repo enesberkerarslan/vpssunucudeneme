@@ -31,8 +31,9 @@ def ticket_try(guid,data):
     is_active[guid] = True
     total_started_accounts = total_started_accounts +1
     start = time.time()
-    while is_active[guid] or mobile_bot.ticketLimit == False:
+    while is_active[guid] and mobile_bot.ticketLimit:
         try:
+            print(mobile_bot.ticketLimit)
             mobile_bot.biletAl()
         except Exception as e:
             print(f"Bilinmeyen bir hata oluştu: Flask-App İçinde {e}")
