@@ -21,6 +21,7 @@ response_start = requests.post(url_start, headers=headers, json=data)
 # GUID'yi alma
 guid = response_start.json().get('message').split("GUID: ")[1].replace(")", "")
 
+print(guid)
 print(response_start.text)
 
 time.sleep(55)

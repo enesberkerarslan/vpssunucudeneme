@@ -38,12 +38,11 @@ class MobileBot:
       self.variantId = None
       self.blockId = None
       self.biletLimiti = False
-      self.search = True
       self.mail = ""
 
+      self.ticketLimit = False
       self.categories = {}
       self.category_variant_mapping = {}
-      self.request_counter = 0
       self.bot_token = "6166443323:AAGvbrCPmFPhhPrYKtoS42vUHU4_IiNEnVU"
       self.api_url = f"https://api.telegram.org/bot{self.bot_token}/sendMessage"
       self.chat_id = 2111168285       
@@ -138,9 +137,8 @@ class MobileBot:
         }
         requests.post(self.api_url, data=data)  
       elif(basketResponse["message"] == "Bu etkinlik için etkinlik limiti aşılmıştır."):
-        self.biletLimiti = True
-        time.sleep(295)
-        self.biletLimiti = False
+        self.ticketLimit = True
+        
     
     def bloklarıTara(self):
       url = "http://ticketingmobile.passo.com.tr/api/passomobile/getavailableblocklist?seatCategoryId=" + self.categoryId + "&serieId=null&eventId=" + self.eventId

@@ -31,14 +31,14 @@ def ticket_try(guid,data):
     is_active[guid] = True
     total_started_accounts = total_started_accounts +1
     start = time.time()
-    while is_active[guid]:
+    while is_active[guid] or mobile_bot.ticketLimit == False:
         try:
             mobile_bot.biletAl()
         except Exception as e:
             print(f"Bilinmeyen bir hata oluştu: Flask-App İçinde {e}")
             time.sleep(3)
         if time.time() - start> 900:
-            print("Belirli bir süre boyunca işlem gerçekleşmedi. Yeniden başlatılıyor...")
+            print("Belirli bir süre boyunca işlem gerçekleşmedi. Yeniden başlatilıyor...")
             return ticket_try(guid, data)
 
     print("Durduruldu")
@@ -94,7 +94,7 @@ def start_try():
     t.start()
 
     # Örnek bir yanıt gönderin
-    return jsonify({'status': 'success', 'message': f'try_ticket baslatıldı (GUID: {guid})'})
+    return jsonify({'status': 'success', 'message': f'try_ticket baslatildi (GUID: {guid})'})
 
 @app.route('/stop_try', methods=['POST'])
 def stop_try():
