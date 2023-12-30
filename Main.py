@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import time 
 
 try:
-  with open('vpssunucudeneme/proxy.json', 'r') as f:
+  with open('proxy.json', 'r') as f:
     data = json.load(f)
     proxy = data['proxies'][0]
     link = data['link']
