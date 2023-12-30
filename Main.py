@@ -130,7 +130,7 @@ class MobileBot:
 
       if(basketResponse["isError"] == False):
         category_name = self.categories.get(int(self.categoryId))
-        message_text = self.mail + str(category_name) +  "  kategorisinden bilet aldı " 
+        message_text = self.mail + " " + str(category_name) +  "  kategorisinden bilet aldı " 
         data = {
             "chat_id": self.chat_id,
             "text": message_text
@@ -187,8 +187,7 @@ class MobileBot:
         sorted_value_list = sorted(getTicketInfo['valueList'], key=lambda x: x['categoriesCount'], reverse=True)
         for item in sorted_value_list:
           self.blockId = item['id'] # En çok olanı bulmak için sıralama bu şekilde yapıldı
-          ticket_thread = threading.Thread(target=lambda: self.sepeteAt())
-          ticket_thread.start()
+          self.sepeteAt()
 
     def biletAl(self):
       endtime= time.time()
