@@ -94,7 +94,7 @@ def start_try():
     t.start()
 
     # Örnek bir yanıt gönderin
-    return jsonify({'status': 'success', 'message': f'try_ticket başlatıldı (GUID: {guid})'})
+    return jsonify({'status': 'success', 'message': f'try_ticket baslatıldı (GUID: {guid})'})
 
 @app.route('/stop_try', methods=['POST'])
 def stop_try():
