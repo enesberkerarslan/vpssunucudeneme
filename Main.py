@@ -46,7 +46,7 @@ class MobileBot:
       self.request_counter = 0
       self.bot_token = "6166443323:AAGvbrCPmFPhhPrYKtoS42vUHU4_IiNEnVU"
       self.api_url = f"https://api.telegram.org/bot{self.bot_token}/sendMessage"
-      self.chat_id = None       
+      self.chat_id = 2111168285       
    
     def kategorileriGetir(self):
       url = "http://ticketingmobile.passo.com.tr/api/passomobile/getcategories?eventId="+self.eventId+"&serieId=null&ticketType=100&campaignId=undefined&validationintegrationid=undefined"
