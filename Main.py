@@ -90,7 +90,7 @@ class MobileBot:
       "x-otp-id": self.otpId,
       "x-session-id": self.sessionId
       }
-      getVariantResponse = requests.get(url=url, headers=headers)
+      getVariantResponse = requests.get(url=url, headers=headers,proxies=proxies)
       getVariantResponse = json.loads(getVariantResponse.text)
       if(getVariantResponse["isError"] == False): 
         self.variantId = getVariantResponse["value"]["variants"][0]["id"]
@@ -125,7 +125,7 @@ class MobileBot:
           ],
           "EventId": self.eventId
         }
-      basketResponse = requests.post(url=url,json=sepeteAtBody, headers=headers)
+      basketResponse = requests.post(url=url,json=sepeteAtBody, headers=headers,proxies=proxies)
       basketResponse = json.loads(basketResponse.text)
       print(basketResponse)
 
@@ -158,7 +158,7 @@ class MobileBot:
       }
       
       try:
-        getTicketInfo = requests.get(url=url, headers=headers,timeout=2)
+        getTicketInfo = requests.get(url=url, headers=headers,timeout=2,proxies=proxies)
         getTicketInfo.raise_for_status()
       except requests.exceptions.HTTPError as http_err:
             if http_err.response.status_code == 401:
@@ -232,7 +232,7 @@ class MobileBot:
         "x-session-id": self.sessionId
       }
       try:
-        getAvailableCategory = requests.post(url=url,json=body, headers=headers,timeout=10)
+        getAvailableCategory = requests.post(url=url,json=body, headers=headers,timeout=10,proxies=proxies)
         getAvailableCategory.raise_for_status()
       except requests.exceptions.HTTPError as http_err:
             if http_err.response.status_code == 401:               
@@ -320,7 +320,7 @@ class MobileBot:
         'X-Session-Id': self.sessionId
         }
       body = {}
-      response = requests.post(url=url,json=body,headers=headers)
+      response = requests.post(url=url,json=body,headers=headers,proxies=proxies)
       response = json.loads(response.text)
 
 
