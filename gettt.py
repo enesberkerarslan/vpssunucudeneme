@@ -1,7 +1,7 @@
 import requests
 import json
 import time
-url_stop = "http://127.0.0.1:5000/status"
+url_stop = "http://104.247.166.78:5000/status"
 
 headers = {"Content-Type": "application/json"}
 

@@ -7,13 +7,14 @@ import time
 try:
   with open('proxy.json', 'r') as f:
     data = json.load(f)
+    proxy = data['proxies'][0]
+    link = data['link']
+    proxies={"http": f"http://{proxy['username']}:{proxy['password']}@{proxy['host']}:{proxy['port']}", 
+            "https": f"https://{proxy['username']}:{proxy['password']}@{proxy['host']}:{proxy['port']}",}
 except FileNotFoundError:
   print("proxyjson yok")
 
-proxy = data['proxies'][0]
-link = data['link']
-proxies={"http": f"http://{proxy['username']}:{proxy['password']}@{proxy['host']}:{proxy['port']}", 
-         "https": f"https://{proxy['username']}:{proxy['password']}@{proxy['host']}:{proxy['port']}",}
+
 
 
 

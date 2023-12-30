@@ -3,15 +3,15 @@ import json
 import time
 # Gönderilecek JSON verisi
 data = {
-    "eventId": "5860325",
-    "otpId": "V1+JRsjRdZL2PDfly9EnDQxB8itxIOLpA7508kT94hHdBovT5BAqJ+pT+7xc+yMnMl3WaFdL6w9XsUV6jDR5b14UOGhzRQSzeuuE6Gp/wzfhZhSO+OoxDXBm5I2TV0zj",
-    "sessionId": "4aa56104-5895-4dec-a51e-e0981af29a7a",
+    "eventId": "5904321",
+    "otpId": "iFrpsrOLRO4qtXkug1YT4GWqeJ71P+mImafdGZ4J8AXqkcWQNx2EnWrpNo+j/JCJE29uWZG/Lja912PSW8yQ1azvbEHW6AaCrKmGKgDHVQEfxk51L2DeNKIVeOLlJKbM",
+    "sessionId": "e9ed7a2a-7e21-4a77-9d81-60f91e4ae530",
     "refreshtoken": "04523c86-2e5f-492d-a4b4-48cfcca7d2bf",
-    "deviceId": "bee8bd17fa220847"
+    "deviceId": "cd8df8dbb2dbee97"
 }
 
-url_start = "http://localhost:5000//start_try"
-url_stop = "http://127.0.0.1:5000/stop_try"
+url_start = "http://104.247.166.78:5000/start_try"
+url_stop = "http://104.247.166.78:5000/stop_try"
 
 headers = {"Content-Type": "application/json"}
 
@@ -26,7 +26,7 @@ print(f"Başlatılan işlem GUID: {guid}")
 time.sleep(5)
 # Stop endpoint'i için bir istek gönder ve GUID ile hangi işlemi durduracağını belirt
 
-#response_stop = requests.post(url_stop, headers=headers, json={"guid": guid})
+response_stop = requests.post(url_stop, headers=headers, json={"guid": guid})
 #
 ## Yanıtı ekrana yazdır
-#print(response_stop.json())
+print(response_stop.json())
