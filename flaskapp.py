@@ -25,7 +25,7 @@ def ticket_try(guid,data):
     if response != "Login Succesfully":
         print(response)
         return response
-    mobile_bot.categoryId = "7010426"
+    mobile_bot.categoryId = "7010427"
 
     bots[guid] = mobile_bot
     is_active[guid] = True

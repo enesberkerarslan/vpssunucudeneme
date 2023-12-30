@@ -23,7 +23,7 @@ guid = response_start.json().get('message').split("GUID: ")[1].replace(")", "")
 
 print(response_start.text)
 
-time.sleep(22)
+time.sleep(55)
 # Stop endpoint'i için bir istek gönder ve GUID ile hangi işlemi durduracağını belirt
 
 response_stop = requests.post(url_stop, headers=headers, json={"guid": guid})
