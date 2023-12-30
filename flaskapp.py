@@ -87,7 +87,7 @@ def start_try():
     
     
     guid = str(uuid.uuid4())
-    return jsonify({'status': 'success', 'message': f'try_ticket başlatıldı (GUID: {guid})'})
+    return jsonify({'status': 'success', 'message': f'try_ticket baaaaaaaaaaaaaaaaaaaaaaşlatıldı (GUID: {guid})'})
     is_active[guid] = True
     # Her bir GUID için ayrı bir thread oluştur
     t = threading.Thread(target=ticket_try, args=(guid, data))
